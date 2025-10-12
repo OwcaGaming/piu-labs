@@ -1,0 +1,159 @@
+/* konkurs.css - stylizacja zaawansowanego formularza konkursowego */
+:root {
+  color-scheme: light dark;
+  --bg: #f7f7fa;
+  --container-bg: #fff;
+  --container-shadow: 0 4px 18px rgba(0, 0, 0, 0.13);
+  --container-radius: 16px;
+  --max-width: 500px;
+  --label-size: 16px;
+  --input-size: 16px;
+  --input-bg: #fafafa;
+  --input-border: #bbb;
+  --input-radius: 6px;
+  --input-focus: #34c759;
+  --button-bg: #34c759;
+  --button-bg-hover: #45a049;
+  --button-radius: 8px;
+  --button-shadow: 0 2px 8px rgba(52, 199, 89, 0.08);
+  --moon-size: 2.2rem;
+  --moon-cursor: pointer;
+}
+.konkurs-container,
+body {
+  background: var(--bg);
+  color: #222;
+}
+.konkurs-container {
+  max-width: var(--max-width);
+  margin: 2.5rem auto;
+  background: var(--container-bg);
+  border-radius: var(--container-radius);
+  box-shadow: var(--container-shadow);
+  padding: 2.5rem 2rem 2rem 2rem;
+  position: relative;
+}
+.konkurs-container h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  line-height: 1.1;
+  letter-spacing: 0.5px;
+}
+.konkurs-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+.konkurs-container label {
+  font-size: var(--label-size);
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+  cursor: pointer;
+}
+.konkurs-container input,
+.konkurs-container select {
+  font-size: var(--input-size);
+  background: var(--input-bg);
+  border: 1.5px solid var(--input-border);
+  border-radius: 3px;
+  box-sizing: border-box;
+  margin-bottom: 0.2rem;
+  padding: 0.6rem 0.7rem;
+  width: 100%;
+  transition: border 0.2s;
+  color: #222;
+}
+.dark .konkurs-container input,
+.dark .konkurs-container select {
+  color: #eee;
+}
+.dark .konkurs-container input,
+.dark .konkurs-container select {
+  color: #eee;
+}
+.konkurs-container input:focus,
+.konkurs-container select:focus {
+  outline: 2px solid var(--input-focus);
+  outline-offset: 1px;
+}
+.konkurs-container input[type='color'] {
+  height: 3.2rem;
+  width: 100%;
+  background: transparent;
+  cursor: pointer;
+  box-sizing: border-box;
+  border-radius: 3px;
+}
+.konkurs-container input[type='checkbox'],
+.konkurs-container input[type='radio'] {
+  width: 1.1em;
+  height: 1.1em;
+  accent-color: var(--button-bg);
+  cursor: pointer;
+}
+.konkurs-container select {
+  cursor: pointer;
+}
+.konkurs-container fieldset {
+  border: 1.5px solid var(--input-border);
+  border-radius: var(--input-radius);
+  padding: 0.7rem 1rem 0.7rem 1rem;
+  margin-bottom: 0.2rem;
+}
+.konkurs-container legend {
+  font-size: 1.05rem;
+  font-weight: 500;
+  padding: 0 0.3rem;
+}
+.konkurs-container button[type='submit'] {
+  width: 100%;
+  padding: 0.8rem;
+  background: var(--button-bg);
+  color: #fff;
+  border: none;
+  border-radius: var(--button-radius);
+  font-size: 1.15rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1.2rem;
+  box-shadow: var(--button-shadow);
+  transition: background 0.2s;
+}
+.konkurs-container button[type='submit']:hover {
+  background: var(--button-bg-hover);
+}
+.konkurs-container .moon-toggle {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  font-size: var(--moon-size);
+  cursor: var(--moon-cursor);
+  user-select: none;
+}
+.konkurs-container .moon-toggle:hover {
+  filter: brightness(0.8);
+}
+.konkurs-container .moon-toggle[title] {
+  position: absolute;
+}
+
+@media (max-width: 600px) {
+  .konkurs-container {
+    max-width: 98vw;
+    padding: 1rem;
+  }
+}
+body.dark {
+  --bg: #181a1b;
+  --container-bg: #23272f;
+  --input-bg: #23272f;
+  --input-border: #444;
+  --container-shadow: 0 4px 18px rgba(0, 0, 0, 0.33);
+  --button-bg: #45a049;
+  --button-bg-hover: #34c759;
+}
+.dark .konkurs-container,
+.dark body {
+  color: #eee;
+}

@@ -1,3 +1,62 @@
+a:hover {
+  text-decoration: underline; /* podkreślenie przy najechaniu */
+}
+
+.index-container {
+  max-width: 350px;
+  margin: 4rem auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.index-title {
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+.index-nav {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+.index-nav-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+.index-nav-link {
+  font-size: 1.1rem;
+  color: #222;
+  background: #f7f7fa;
+  border-radius: 5px;
+  padding: 0.5rem 1.2rem;
+  transition: background 0.2s;
+  text-decoration: none;
+  font-weight: 500;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+.index-nav-link:hover {
+  background: #ececec;
+}
+.index-back {
+  display: block;
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  color: #0066cc;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 500;
+}
+.index-back:hover {
+  text-decoration: underline;
+}
 /* Minimalny reset  */
 html {
   font-size: 16px; /* bazowy rozmiar czcionki */
@@ -14,6 +73,95 @@ a {
   text-decoration: none; /* bez podkreślenia */
   font-size: 1.4rem;
 }
+
 a:hover {
   text-decoration: underline; /* podkreślenie przy najechaniu */
+}
+
+.login-container {
+  max-width: 350px;
+  margin: 4rem auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+}
+.login-container h2 {
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.login-container label {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+.login-container input[type='text'],
+.login-container input[type='password'] {
+  padding: 0.6rem 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  background: #d1d1d1;
+  box-sizing: border-box;
+}
+.login-container button[type='submit'] {
+  padding: 0.7rem;
+  background: #222;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.login-container button[type='submit']:hover {
+  background: #444;
+}
+
+.konkurs-container {
+  max-width: 500px;
+  margin: 2.5rem auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.13);
+  padding: 2.5rem 2rem 2rem 2rem;
+}
+.konkurs-container h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  line-height: 1.1;
+  letter-spacing: 0.5px;
+}
+.konkurs-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+.konkurs-container label {
+  font-size: 1.08rem;
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+.konkurs-container input[type='text'],
+.konkurs-container input[type='email'],
+.konkurs-container input[type='number'],
+.konkurs-container input[type='date'],
+.konkurs-container select {
+  width: 100%;
+  padding: 0.6rem 0.7rem;
+  border: 1.5px solid #bbb;
+  border-radius: 6px;
+  font-size: 1.08rem;
+  background: #fafafa;
+  box-sizing: border-box;
+  margin-bottom: 0.2rem;
 }
