@@ -4,9 +4,94 @@
     <meta charset="UTF-8" />
     <title>Lab 3</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/polo.css" />
   </head>
   <body>
     <h1>Lab 3</h1>
     <a href="..">Powrót</a>
+
+    <section class="product-card">
+      <input type="radio" name="color" id="color-blue" checked />
+      <input type="radio" name="color" id="color-red" />
+      <input type="radio" name="color" id="color-green" />
+      <input type="radio" name="color" id="color-yellow" />
+
+      <input type="radio" name="size" id="size-s" />
+      <input type="radio" name="size" id="size-m" checked />
+      <input type="radio" name="size" id="size-l" />
+      <input type="radio" name="size" id="size-xl" />
+
+      <div class="product-media">
+        <div class="photo-frame">
+          <img
+            src="polo/polo_b.png"
+            alt="Koszulka Polo niebieska"
+            class="photo photo-blue"
+          />
+          <img
+            src="polo/polo_r.png"
+            alt="Koszulka Polo czerwona"
+            class="photo photo-red"
+          />
+          <img
+            src="polo/polo_g.png"
+            alt="Koszulka Polo zielona"
+            class="photo photo-green"
+          />
+          <img
+            src="polo/polo_y.png"
+            alt="Koszulka Polo żółta"
+            class="photo photo-yellow"
+          />
+        </div>
+      </div>
+
+      <div class="product-info">
+        <h2 class="title">
+          Koszulka Polo <span class="badge">Promocja!</span>
+        </h2>
+        <p class="desc">
+          Lekka, wygodna koszulka polo wykonana z oddychającej tkaniny. Idealna
+          na co dzień i na trening.
+        </p>
+
+        <div class="variant-group">
+          <h3>Kolor</h3>
+          <div class="swatches" role="radiogroup" aria-label="Wybierz kolor">
+            <label
+              for="color-blue"
+              class="swatch blue"
+              title="Niebieski"
+            ></label>
+            <label for="color-red" class="swatch red" title="Czerwony"></label>
+            <label
+              for="color-green"
+              class="swatch green"
+              title="Zielony"
+            ></label>
+            <label
+              for="color-yellow"
+              class="swatch yellow"
+              title="Żółty"
+            ></label>
+          </div>
+        </div>
+
+        <div class="variant-group sizes">
+          <h3>Rozmiar</h3>
+          <div class="size-buttons">
+            <label for="size-s">S</label>
+            <label for="size-m">M</label>
+            <label for="size-l">L</label>
+            <label for="size-xl">XL</label>
+            <span class="size-highlight" aria-hidden="true"></span>
+          </div>
+        </div>
+
+        <div class="price">59,99 zł</div>
+
+        <button class="add-to-cart">🛒 Do koszyka</button>
+      </div>
+    </section>
   </body>
 </html>

@@ -1,0 +1,196 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 1rem;
+}
+
+/* Base layout */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.item {
+  background: #ddd;
+  color: #111;
+  padding: 1.5rem;
+  flex: 1 1 120px; /* allow items to grow/shrink equally */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  min-width: 120px;
+  height: 120px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  max-width: 320px;
+}
+
+/* Theme picker styling - keep small */
+.theme-picker {
+  border: 1px solid #ccc;
+  padding: 0.5rem 0.75rem;
+}
+
+/* Variant-specific colors via the radio buttons (no JS). We use adjacent combinator from header -> fieldset -> input:checked */
+
+/* We target the radio inputs by using :checked on the inputs and then relying on document order.
+   Since inputs and labels are inside the fieldset and not siblings of .container, we style using
+   the :root trick: set a custom property on body using :has would be ideal, but as :has isn't allowed,
+   we'll use the general sibling selector by moving styles that depend on input:checked to target
+   using input:checked ~ .container would require inputs before container; currently they are before container
+   inside header, so we can use header input:checked ~ .container selector to change variables.
+*/
+
+/* Blue variant: blocks always equal */
+header:has(input[value='blue']:checked) ~ .container .item {
+  background: linear-gradient(135deg, #a8d0ff, #7fb3ff);
+  color: #042;
+  font-weight: 400;
+}
+
+/* Red variant */
+header:has(input[value='red']:checked) ~ .container .item {
+  background: linear-gradient(135deg, #ffd1d1, #ff8f8f);
+  color: #330000;
+}
+
+/* Green variant */
+header:has(input[value='green']:checked) ~ .container .item {
+  background: linear-gradient(135deg, #d7ffd9, #7fffb1);
+  color: #023;
+}
+
+/* Make sure by default items are equal height/width via flex: for blue they should be equal already.
+   For red and green we'll override specific items.
+*/
+
+/* RED: larger block for item 1 and appears as third (order: 2,3,1,4,5 with item1 being order 3)
+   We will target the first .item by using :nth-of-type(1) inside container. Since the content of items
+   is just numbers, nth-of-type works.
+*/
+header:has(input[value='red']:checked) ~ .container .item:nth-of-type(1) {
+  order: 3; /* appears third */
+  flex: 2 1 240px; /* larger */
+  font-weight: 700; /* number 1 bold */
+  position: relative;
+}
+
+/* Red: add caption under the number using a pseudo element. We slightly reduce caption font by 20% */
+header:has(input[value='red']:checked)
+  ~ .container
+  .item:nth-of-type(1)::after {
+  content: 'Jestem większy i na środku!';
+  display: block;
+  font-size: 0.8em; /* 20% smaller */
+  text-align: center;
+  margin-top: 0.5rem;
+  font-weight: 400;
+}
+
+/* ensure caption doesn't push block height beyond visual by allowing it to overlap? The requirement
+   doesn't forbid growing height; we'll keep natural flow so caption is under the number centered.
+*/
+
+/* GREEN: emojis on item 1 are twice the font-size of letters but should not change block height.
+   We'll insert the emoji before the number using a pseudo-element, sized separately. To avoid affecting
+   the block height we use absolute positioning inside a relatively positioned item and set height fixed.
+*/
+header:has(input[value='green']:checked) ~ .container .item:nth-of-type(1) {
+  position: relative;
+  overflow: visible;
+}
+
+header:has(input[value='green']:checked)
+  ~ .container
+  .item:nth-of-type(1)::before {
+  content: '😀😀';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 6px; /* position inside block without changing height */
+  font-size: 2em; /* twice the letter size */
+  line-height: 1;
+}
+
+/* hide the normal number text visually shifted down to make room for emoji but keep it centered vertically
+   we'll push the normal text down using padding-top on the item; ensure item height stays fixed */
+header:has(input[value='green']:checked) ~ .container .item:nth-of-type(1) {
+  padding-top: 2.2rem; /* create space for emoji without changing height drastically */
+}
+
+/* To reverse order in narrow widths for green variant, use media query nested inside selector as requested */
+@media (max-width: 1024px) {
+  /* general responsive: make container stack differently */
+  .container {
+    gap: 0.75rem;
+    justify-content: center; /* center stacked items */
+  }
+
+  /* Blue: equal blocks adjusted for narrow width - we'll make them wrap full width */
+  header:has(input[value='blue']:checked) ~ .container .item {
+    flex: 0 0 260px; /* stacked, centered, fixed width */
+    max-width: 260px;
+    height: 48px;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+  }
+
+  /* Red: in narrow width keep the larger appearance but ensure item ordering holds */
+  header:has(input[value='red']:checked) ~ .container .item:nth-of-type(1) {
+    order: 3;
+    flex: 0 0 100%;
+    height: 120px;
+    font-size: 1.05rem;
+  }
+
+  header:has(input[value='red']:checked) ~ .container .item {
+    flex: 0 0 260px;
+    max-width: 260px;
+    height: 48px;
+  }
+
+  /* Green: reverse order in narrow widths. We set explicit orders so narrow order is 5,4,3,2,1 */
+  header:has(input[value='green']:checked) ~ .container .item {
+    flex: 0 0 260px;
+    max-width: 260px;
+  }
+
+  /* set reversed ordering by nth-of-type mapping */
+  header:has(input[value='green']:checked) ~ .container .item:nth-of-type(1) {
+    order: 5;
+  }
+  header:has(input[value='green']:checked) ~ .container .item:nth-of-type(2) {
+    order: 4;
+  }
+  header:has(input[value='green']:checked) ~ .container .item:nth-of-type(3) {
+    order: 3;
+  }
+  header:has(input[value='green']:checked) ~ .container .item:nth-of-type(4) {
+    order: 2;
+  }
+  header:has(input[value='green']:checked) ~ .container .item:nth-of-type(5) {
+    order: 1;
+  }
+
+  /* reduce emoji scale a touch for narrow layout but keep their visual size relative to letters */
+  header:has(input[value='green']:checked)
+    ~ .container
+    .item:nth-of-type(1)::before {
+    top: 6px;
+    font-size: 2em;
+  }
+}
+
+/* Large-screen blue spacing tweaks to look like examples */
+@media (min-width: 1025px) {
+  header:has(input[value='blue']:checked) ~ .container .item {
+    flex: 0 0 220px; /* fixed column width so items wrap into centered rows */
+    height: 48px;
+    padding: 0.6rem 1rem;
+  }
+}
