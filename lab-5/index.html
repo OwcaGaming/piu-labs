@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab-5: Kształty</title>
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>🎨 Kształty</h1>
+        <p>Dodawaj, koloruj i usuwaj kształty</p>
+      </header>
+
+      <section class="controls">
+        <div class="button-group">
+          <button id="add-square" class="btn btn-primary">
+            ➕ Dodaj kwadrat
+          </button>
+          <button id="add-circle" class="btn btn-primary">
+            ➕ Dodaj kółko
+          </button>
+        </div>
+
+        <div class="button-group">
+          <button id="change-square-color" class="btn btn-secondary">
+            🎨 Przekoloruj kwadraty
+          </button>
+          <button id="change-circle-color" class="btn btn-secondary">
+            🎨 Przekoloruj kółka
+          </button>
+        </div>
+      </section>
+
+      <section class="counters">
+        <div class="counter-item">
+          <span class="counter-label">Kwadraty:</span>
+          <span id="squares-count" class="counter-value">0</span>
+        </div>
+        <div class="counter-item">
+          <span class="counter-label">Kółka:</span>
+          <span id="circles-count" class="counter-value">0</span>
+        </div>
+      </section>
+
+      <section class="canvas">
+        <div id="shapes-container" class="shapes-container"></div>
+      </section>
+
+      <footer>
+        <p>Kliknij na kształt, aby go usunąć</p>
+      </footer>
+    </div>
+  </body>
+</html>
