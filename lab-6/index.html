@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo Ajax Library</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Ajax Library Demo</h1>
+
+      <div class="controls">
+        <button id="fetchBtn" class="btn btn-primary">Pobierz dane</button>
+        <button id="errorBtn" class="btn btn-danger">Wyzwól błąd</button>
+        <button id="resetBtn" class="btn btn-secondary">Reset</button>
+      </div>
+
+      <div id="errorMessage" class="error-message"></div>
+
+      <div id="loader" class="loader hidden">
+        <div class="spinner"></div>
+        <p>Ładowanie...</p>
+      </div>
+
+      <div id="dataList" class="data-list"></div>
+    </div>
+
+    <script src="ajax.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

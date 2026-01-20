@@ -1,0 +1,164 @@
+<style>
+  :host {
+    display: block;
+    font-family: system-ui, Arial;
+  }
+
+  .card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 0;
+    max-width: 280px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition:
+      transform 0.2s,
+      box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  .image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px 8px 0 0;
+    background: #f5f5f5;
+  }
+
+  .image-container img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    display: block;
+    background: #fff;
+    padding: 10px;
+  }
+
+  .promotion {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff4444;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+
+  .content {
+    padding: 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .name {
+    margin: 0 0 12px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+  }
+
+  .price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #2c5aa0;
+    margin-bottom: 12px;
+  }
+
+  .options {
+    margin-bottom: 12px;
+    flex: 1;
+  }
+
+  .option-group {
+    margin-bottom: 8px;
+  }
+
+  .option-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #555;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .option-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .option-item {
+    display: inline-block;
+    padding: 4px 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    background: #f9f9f9;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .option-item:hover {
+    background: #e8f0f7;
+    border-color: #2c5aa0;
+  }
+
+  .option-item.selected {
+    background: #2c5aa0;
+    color: white;
+    border-color: #2c5aa0;
+  }
+
+  .button-container {
+    margin-top: auto;
+  }
+
+  button {
+    width: 100%;
+    padding: 10px;
+    background: #2c5aa0;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  button:hover {
+    background: #1e3f73;
+  }
+
+  button:active {
+    background: #162d54;
+  }
+</style>
+
+<div class="card">
+  <div class="image-container">
+    <img src="" alt="Product" />
+    <div class="promotion" style="display: none"></div>
+  </div>
+
+  <div class="content">
+    <h2 class="name"></h2>
+    <div class="price"></div>
+
+    <div class="options">
+      <slot></slot>
+    </div>
+
+    <div class="button-container">
+      <button>Add to Cart</button>
+    </div>
+  </div>
+</div>

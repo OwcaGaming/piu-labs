@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "T-Shirt",
+    "price": 120,
+    "image": "./components/product-photos/tshirt.jpg",
+    "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+    "promotion": "20% OFF"
+  },
+  {
+    "id": 2,
+    "name": "Dżinsy",
+    "price": 240,
+    "image": "./components/product-photos/denim-jeans.jpg",
+    "sizes": ["28", "30", "32", "34", "36", "38"],
+    "promotion": null
+  },
+  {
+    "id": 3,
+    "name": "Sukienka",
+    "price": 200,
+    "image": "./components/product-photos/summer-dress.jpg",
+    "sizes": ["XS", "S", "M", "L", "XL"],
+    "promotion": "NEW"
+  },
+  {
+    "id": 4,
+    "name": "Kurtka zimowa",
+    "price": 360,
+    "image": "./components/product-photos/winter-jacket.jpg",
+    "sizes": ["XS", "S", "M", "L", "XL"],
+    "promotion": null
+  },
+  {
+    "id": 5,
+    "name": "Sweter",
+    "price": 184,
+    "image": "./components/product-photos/casual-sweater.jpg",
+    "colors": ["Cream", "Gray", "Burgundy", "Forest Green"],
+    "promotion": "15% OFF"
+  },
+  {
+    "id": 6,
+    "name": "Krótkie spodenki",
+    "price": 140,
+    "image": "./components/product-photos/mes's-shorts.jpg",
+    "sizes": ["XS", "S", "M", "L", "XL"],
+    "promotion": null
+  }
+]

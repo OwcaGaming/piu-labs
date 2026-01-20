@@ -1,0 +1,29 @@
+<style>
+  :host {
+    display: block;
+    font-family: system-ui, Arial;
+  }
+
+  .products-container {
+    padding: 20px;
+  }
+
+  .products-header {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #2c5aa0;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+  }
+</style>
+
+<div class="products-container">
+  <h1 class="products-header">Nasza Kolekcja</h1>
+  <div class="products-grid"></div>
+</div>

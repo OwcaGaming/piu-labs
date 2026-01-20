@@ -1,0 +1,142 @@
+<style>
+  :host {
+    display: block;
+    font-family: system-ui, Arial;
+  }
+
+  .cart-container {
+    border: 2px solid #2c5aa0;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 400px;
+    background: #f9f9f9;
+  }
+
+  .cart-header {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #2c5aa0;
+    margin-bottom: 16px;
+    border-bottom: 2px solid #2c5aa0;
+    padding-bottom: 12px;
+  }
+
+  .cart-empty {
+    color: #999;
+    text-align: center;
+    padding: 32px 16px;
+    font-style: italic;
+  }
+
+  .cart-items {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 16px;
+  }
+
+  .cart-item {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 12px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 12px;
+  }
+
+  .item-details {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .item-name {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 4px;
+    word-wrap: break-word;
+  }
+
+  .item-options {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 4px;
+  }
+
+  .item-price {
+    font-weight: 600;
+    color: #2c5aa0;
+  }
+
+  .remove-btn {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: background 0.2s;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .remove-btn:hover {
+    background: #ff5252;
+  }
+
+  .cart-summary {
+    border-top: 2px solid #2c5aa0;
+    padding-top: 16px;
+    margin-top: 16px;
+  }
+
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 1rem;
+  }
+
+  .summary-row.total {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2c5aa0;
+  }
+
+  .clear-cart-btn {
+    width: 100%;
+    padding: 10px;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 12px;
+    transition: background 0.2s;
+  }
+
+  .clear-cart-btn:hover {
+    background: #ff5252;
+  }
+</style>
+
+<div class="cart-container">
+  <div class="cart-header">🛒 Shopping Cart</div>
+
+  <div class="cart-items"></div>
+
+  <div class="cart-summary">
+    <div class="summary-row">
+      <span>Items:</span>
+      <span class="item-count">0</span>
+    </div>
+    <div class="summary-row total">
+      <span>Total:</span>
+      <span class="total-price">$0.00</span>
+    </div>
+    <button class="clear-cart-btn" style="display: none">Clear Cart</button>
+  </div>
+</div>
